@@ -31,7 +31,7 @@ async function sendSMS(to, message) {
         console.log('✅ SMS API Response:', JSON.stringify(response, null, 2));
         
         // Check if SMS was sent successfully
-        if (response.SMSMessageData && response.SMSMessageData.Recipients) {
+        if (response.SMSMessageData && response.SMSMessageData.Recipients && response.SMSMessageData.Recipients.length > 0) {
             const recipient = response.SMSMessageData.Recipients[0];
             if (recipient.status === 'Success') {
                 console.log('✅ SMS sent successfully!');
@@ -49,6 +49,14 @@ async function sendSMS(to, message) {
                     data: response
                 };
             }
+        } else if (response.SMSMessageData && response.SMSMessageData.Message) {
+            // If Recipients is empty, log the Message instead
+            console.error('❌ SMS failed - No recipients processed. Message:', response.SMSMessageData.Message);
+            return {
+                success: false,
+                error: response.SMSMessageData.Message,
+                data: response
+            };
         } else {
             console.error('❌ Unexpected API response format:', response);
             return {
