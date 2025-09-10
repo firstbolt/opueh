@@ -23,7 +23,7 @@ async function sendSMS(to, message) {
         const options = {
             to: [to], // Africa's Talking expects an array of recipients
             message: message,
-            from: null // Use default sender ID for sandbox
+            from: "sandbox" // Required string for sandbox mode
         };
 
         const response = await sms.send(options);
