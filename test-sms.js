@@ -36,7 +36,7 @@ Dial *966# for quick airtime/Data purchase`;
 testSMS();
 
 // Example usage as requested:
-// sendSMS("+2348082225459", "Hello Sandbox SMS!");
+sendSMS("+2348082225459", "Hello Sandbox SMS!");
 
 // Uncomment below to test the example:
 // sendSMS("+2348082225459", "Hello Sandbox SMS!")
