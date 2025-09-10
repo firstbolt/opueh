@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO Transaction Form - Educational Purpose Only</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="demo-header">
+            <h1>🎓 DEMO TRANSACTION FORM</h1>
+            <p class="demo-warning">⚠️ FOR EDUCATIONAL PURPOSES ONLY ⚠️</p>
+        </div>
+
+        <form id="transactionForm" action="/submit-transaction" method="POST" class="transaction-form">
+            <div class="form-group">
+                <label for="accountName">DEMO Account Name</label>
+                <input type="text" id="accountName" name="accountName" placeholder="Enter DEMO account name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bankName">DEMO Bank Name</label>
+                <input type="text" id="bankName" name="bankName" placeholder="Enter DEMO bank name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="accountNumber">DEMO Account Number</label>
+                <input type="text" id="accountNumber" name="accountNumber" placeholder="Enter DEMO account number" pattern="[0-9]{10}" maxlength="10" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">DEMO Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter DEMO phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">DEMO Transaction Amount (₦)</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter DEMO amount" step="0.01" min="0.01" max="999999999" required>
+            </div>
+
+            <div class="form-group">
+                <label for="narration">DEMO Narration/Description</label>
+                <input type="text" id="narration" name="narration" placeholder="Enter DEMO transaction description" required>
+            </div>
+
+            <div class="form-group">
+                <label for="transactionDate">DEMO Transaction Date</label>
+                <input type="datetime-local" id="transactionDate" name="transactionDate" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Generate DEMO Receipt</button>
+        </form>
+
+        <div id="smsPreview" class="sms-preview hidden">
+            <h3>📱 DEMO SMS Preview</h3>
+            <div id="smsContent" class="sms-content"></div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Processing DEMO Transaction...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
